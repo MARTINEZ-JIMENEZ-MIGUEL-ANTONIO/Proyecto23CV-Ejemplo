@@ -1,0 +1,46 @@
+﻿<Window x:Class="Proyecto23cvExample.VistaWPF.Sistema"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto23cvExample.VistaWPF"
+        mc:Ignorable="d"
+        Title="Sistema" Height="450" Width="850"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="¡Bienvenido Usuario!" HorizontalAlignment="Center" Height="80" VerticalAlignment="Top" Width="850" FontSize="25" FontFamily="Nirmala UI Semilight" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF28C789"/>
+        <Label Content="Nombre:" HorizontalAlignment="Left" Height="30" Margin="42,121,0,0" VerticalAlignment="Top" Width="200" FontSize="15" FontFamily="Malgun Gothic Semilight"/>
+        <TextBox x:Name="TxtNombre" HorizontalAlignment="Left" Height="30" Margin="42,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" BorderThickness="0,0,0,1" BorderBrush="Black" FontSize="15" FontFamily="Gadugi"/>
+        <Label Content="Usuario:" HorizontalAlignment="Left" Height="30" Margin="42,188,0,0" VerticalAlignment="Top" Width="200" FontSize="15" FontFamily="Malgun Gothic Semilight"/>
+        <TextBox x:Name="TxtUsuario" HorizontalAlignment="Left" Height="30" Margin="42,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" BorderThickness="0,0,0,1" BorderBrush="Black" FontSize="15" FontFamily="Gadugi"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Height="30" Margin="42,254,0,0" VerticalAlignment="Top" Width="200" FontSize="15" FontFamily="Malgun Gothic Semilight"/>
+        <TextBox x:Name="TxtContraseña" HorizontalAlignment="Left" Height="30" Margin="42,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" BorderThickness="0,0,0,1" BorderBrush="Black" FontSize="15" FontFamily="Gadugi"/>
+
+        <DataGrid x:Name="DataGridUserTable" Height="250" Width="530" Background="White" BorderBrush="black" Margin="0,0,35,67" HorizontalContentAlignment="Center" AutoGenerateColumns="false" CanUserAddRows="false" IsReadOnly="True" ColumnWidth="*" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="id" Binding="{Binding PkUsuario}" Width="35"/>
+                <DataGridTextColumn Header="Nombre"  Binding="{Binding Nombre}" Width="100"/>
+                <DataGridTextColumn Header="Usuario"  Binding="{Binding UserName}" Width="100"/>
+                <DataGridTextColumn Header="Contraseña"  Binding="{Binding Password}" Width="100"/>
+
+                <DataGridTemplateColumn Header="Editar">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Edit" Click="BtnEditarUsuario_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Click="BtnEliminarUsuario_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="BtnAgregar" Content="AGREGAR" HorizontalAlignment="Left" Height="30" Margin="90,335,0,0" VerticalAlignment="Top" Width="100" Background="#FFE4A51B" BorderBrush="{x:Null}" Click="BtnAgregar_Click"/>
+
+    </Grid>
+</Window>
